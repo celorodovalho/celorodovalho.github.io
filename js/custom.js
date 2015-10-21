@@ -21,18 +21,23 @@ var BehanceProjectsCallback = function (data) {
             title = project.name,
             id = project.id,
             descriptions = project.description.split('\n'),
-            url = project.url;
+            url = project.url,
+            tools = [],
+            agency = '© ';
         $.each(project.tools, function (index, value) {
             fields.push(value.title);
         });
         $.each(descriptions, function (index, value) {
             if (/Agency/.test(value)) {
-                fields.push(value.replace(/Agency:/i, '').trim());
+                value = value.replace(/Agency:/i, '').trim();
+                fields.push(value);
+                agency += value;
             }
             if (/Tools/.test(value)) {
                 var tool = value.replace(/Tools:/i, '').trim().split(',');
                 $.each(tool, function (key, valor) {
                     fields.push(valor.trim());
+                    tools.push(valor.trim());
                 });
             }
             if (/URL/.test(value)) {
@@ -43,10 +48,10 @@ var BehanceProjectsCallback = function (data) {
         fields = fields.join('#').replace(/[\/\. ]/g, '').replace(/#/g, ' ').toLowerCase();
         $('#portfolio-list').append(
             '<li class="' + fields + '" id="project' + id + '">' +
-            '<a href="' + url + '" title="' + title + '" target="_blank">' +
+            '<a href="' + url + '" title="' + title + '" class="folio fancybox.iframe">' +
             '<img src="' + thumb + '" alt="">' +
             '<h2 class="title">' + title + '</h2>' +
-            '<span class="categorie">' + project.fields.join(' / ') + '</span>' +
+            '<span class="categorie">' + tools.join(' / ') + '<br><strong>' + agency + '</strong>' + '</span>' +
             '</a>' +
             '</li>'
         );
@@ -103,7 +108,12 @@ var BehanceProjectsCallback = function (data) {
             'transitionOut': 'elastic',
             'speedIn': 200,
             'speedOut': 200,
-            'overlayOpacity': 0.6
+            'overlayOpacity': 0.6,
+            maxWidth	: 1200,
+            maxHeight	: 600,
+            fitToView	: false,
+            width		: '70%',
+            height		: '70%',
         });
         clearInterval(ajaxRepeater.interval);
     },
@@ -227,7 +237,7 @@ jQuery(document).ready(function () {
     // Needed variables
     var $map = $('#map'),
         $tabContactClass = ('tab-contact'),
-        $address = 'Pra�a das Andorinhas, Aguas Claras';
+        $address = 'Praça das Andorinhas, Águas Claras';
 
     $content.bind('easytabs:after', function (evt, tab, panel) {
         if (tab.hasClass($tabContactClass)) {
@@ -240,6 +250,4 @@ jQuery(document).ready(function () {
             });
         }
     });
-
-
-});	
+});

@@ -111,7 +111,7 @@ div.top {
     /*margin-left: 10px;*/
     /*display: none;*/
     /*width: 100%;*/
-    width: 800px;
+    /*width: 800px;*/
     margin: 0 auto;
 }
 #logo img {
@@ -998,15 +998,14 @@ div.footer .copyright {
     }
 
     .socialicons {
-        display: none;
-    !important
+        /*display: none !important;*/
     }
 
     /*-------------------------------------------------------*/
     /* Profile Section */
     /*-------------------------------------------------------*/
     div.top {
-        height: 50px;
+        /*height: 50px;*/
         margin-bottom: 5px;
     }
 
@@ -1098,11 +1097,14 @@ div.footer .copyright {
     /* Portfolio */
     /*-------------------------------------------------------*/
     #portfolio-list {
-        width: 280px;
+        /*width: 280px;*/
+        width: auto !important;
     }
 
     #portfolio-list li {
-        margin-left: 40px;
+        /*margin-left: 40px;*/
+        margin: 0 15px 15px;
+        float: none;
     }
 
     /*-------------------------------------------------------*/
