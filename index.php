@@ -25,46 +25,21 @@
     <!-- Container -->
     <div class="app" id="container" ui-view></div>
     <!-- /Container -->
-<!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.browser.min.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>-->
-<!--<script type="text/javascript" src="js/respond.min.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.easytabs.min.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.adipoli.min.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>-->
-<!--<script type="text/javascript" src="js/jquery.isotope.min.js"></script>-->
-<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
-<!--<script type="text/javascript" src="js/jquery.gmap.min.js"></script>-->
-<!--<script type="text/javascript" src="http://projetos.lucaspeperaio.com.br/ajax-cross-domain/jquery.xdomainajax.js"></script>-->
-<!--<script type="text/javascript" src="js/custom.js"></script>-->
-<!--<script type="text/javascript" src="js/pace.min.js"></script>-->
 <script src="js/vendor/jquery/dist/jquery.min.js"></script>
 <script src="js/vendor/angular/angular.js"></script>
 <script src="js/vendor/angular-animate/angular-animate.min.js"></script>
 <script src="js/vendor/angular-route/angular-route.min.js"></script>
-<script src="js/vendor/angular-cookies/angular-cookies.min.js"></script>
-<script src="js/vendor/angular-resource/angular-resource.min.js"></script>
-<script src="js/vendor/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="js/vendor/angular-touch/angular-touch.min.js"></script>
 <script src="js/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="js/vendor/ngstorage/ngStorage.min.js"></script>
-<script src="js/vendor/angular-ui-utils/ui-utils.min.js"></script>
-<script src="js/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="js/vendor/oclazyload/dist/ocLazyLoad.min.js"></script>
-<script src="js/vendor/angular-translate/angular-translate.min.js"></script>
-<script src="js/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-<script src="js/vendor/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
-<script src="js/vendor/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
 <script src="js/vendor/angular-loading-bar/build/loading-bar.min.js"></script>
 <script src="js/vendor/isotope/jquery.isotope.min.js"></script>
 <script src="js/vendor/angular-isotope/dist/angular-isotope.min.js"></script>
 <script src="js/vendor/angular-fancybox-plus/js/angular-fancybox-plus.js"></script>
+<script src="js/jquery.adipoli.min.js"></script>
 
 
 <script src="js/config.js"></script>
-<script src="js/config.lazyload.js"></script>
 <script src="js/config.router.js"></script>
+<script src="js/directives/adipoli.js"></script>
 
 <script src="js/controllers/Main.js"></script>
 <script src="js/controllers/Profile.js"></script>
@@ -74,22 +49,6 @@
 
 <!--    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>-->
 <!--    <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>-->
-
-<script src="js/directives/setnganimate.js"></script>
-<script src="js/directives/ui-butterbar.js"></script>
-<script src="js/directives/ui-focus.js"></script>
-<script src="js/directives/ui-fullscreen.js"></script>
-<script src="js/directives/ui-jq.js"></script>
-<script src="js/directives/ui-module.js"></script>
-<script src="js/directives/ui-nav.js"></script>
-<script src="js/directives/ui-scroll.js"></script>
-<script src="js/directives/ui-shift.js"></script>
-<script src="js/directives/ui-toggleclass.js"></script>
-
-<script src="js/services/ui-load.js"></script>
-
-<script src="js/filters/fromNow.js"></script>
-
 
 <!--<script src="js/app.src.js"></script>-->
 <script>

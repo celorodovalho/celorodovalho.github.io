@@ -2,18 +2,7 @@
 angular.module('app', [
     'angular-loading-bar',
     'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'ngTouch',
-    'ngStorage',
-    'ui.router',
-    'ui.bootstrap',
-    'ui.utils',
-    'ui.load',
-    'ui.jq',
-    'oc.lazyLoad',
-    'pascalprecht.translate'
+    'ui.router'
 ]);
 // config
 

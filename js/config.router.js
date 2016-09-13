@@ -13,8 +13,8 @@ angular.module('app')
     ]
 )
     .config(
-    [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG',
-        function ($stateProvider,   $urlRouterProvider, JQ_CONFIG) {
+    [          '$stateProvider', '$urlRouterProvider',
+        function ($stateProvider,   $urlRouterProvider) {
 
             $urlRouterProvider
                 .otherwise('/app/profile');
@@ -30,13 +30,13 @@ angular.module('app')
                 })
                 .state('app.profile', {
                     url: '/profile',
-                    controller: 'ProfileController',
+                    controller: 'ProfileController'/*,
                     resolve: {
                         deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
 
                             }]
-                    }
+                    }*/
                 })
                 .state('app.resume', {
                     url: '/resume',
@@ -61,13 +61,13 @@ angular.module('app')
                 })
                 .state('app.dashboard-v2', {
                     url: '/dashboard-v2',
-                    templateUrl: 'tpl/app_dashboard_v2.html',
+                    templateUrl: 'tpl/app_dashboard_v2.html'/*,
                     resolve: {
                         deps: ['$ocLazyLoad',
                             function( $ocLazyLoad ){
                                 return $ocLazyLoad.load(['js/controllers/chart.js']);
                             }]
-                    }
+                    }*/
                 })
         }
     ]
