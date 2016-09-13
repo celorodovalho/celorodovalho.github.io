@@ -557,14 +557,14 @@ div.top {
     text-align: center;
     background-color: #f8f8f8;
     border-bottom: 1px solid #e5e5e5;
-    /*height: 185px;*/
+    height: 250px;
     margin-bottom: 30px;
     width: 230px;
 }
 
 #portfolio-list li:hover {
     border-bottom: 1px solid #68c3ee;
-    /*height: 185px;*/
+    height: 250px;
 }
 
 #portfolio-list img {

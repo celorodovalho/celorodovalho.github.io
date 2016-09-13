@@ -2,7 +2,8 @@
 angular.module('app', [
     'angular-loading-bar',
     'ngAnimate',
-    'ui.router'
+    'ui.router',
+    'iso.directives'
 ]);
 // config
 

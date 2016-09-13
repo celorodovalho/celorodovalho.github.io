@@ -118,7 +118,7 @@ appModule
                             element = $scope.listFilters.indexOf(filter);
                         if (element < 0) {
                             $scope.filters.push({
-                                filter: filter,
+                                filter: '.' + filter,
                                 value: value
                             });
                             $scope.listFilters.push(filter);

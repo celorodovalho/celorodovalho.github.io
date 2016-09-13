@@ -3,10 +3,7 @@ appModule
     'ResumeController',
     [
         '$scope',
-        '$translate',
-        '$localStorage',
-        '$window',
-        function ($scope, $translate, $localStorage, $window) {
+        function ($scope) {
             // config
             $scope.$parent.toggle = false;
         }

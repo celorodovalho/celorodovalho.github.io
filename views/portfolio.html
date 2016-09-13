@@ -8,7 +8,7 @@
     <div class="extra-text">Alguns projetos que trabalhei</div>
     <ul id="portfolio-list" isotope-container iso-options-subscribe="my-iso-opts" iso-method-subscribe="my-iso-method">
         <!--<li ng-repeat="project in projects | filter:query | orderBy:orderProp">-->
-        <li ng-repeat="project in projects" isotope-item>
+        <li ng-repeat="project in projects" isotope-item class="{{ project.fields}}">
             <a href="{{ project.url }}" title="{{ project.title }}" class="folio fancybox.iframe"
                fancyboxable="{transitionIn:'elastic',
                         transitionOut:'elastic',
