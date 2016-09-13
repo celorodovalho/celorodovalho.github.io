@@ -1,1 +1,9 @@
 /.idea
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.DS_Store
+angular-phonecat-snapshots
+bower_components/
+js/vendor

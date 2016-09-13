@@ -1,0 +1,30 @@
+<!-- Portfolio -->
+<div id="portfolio" ng-controller="PortfolioController">
+    <ul id="portfolio-filter" opt-kind ok-key="filter" ok-publish="my-iso-opts">
+        <li ng-repeat="filter in filters">
+            <a href="" ng-class="{current: filter.default}" ok-sel="{{ filter.filter }}">{{ filter.value }}</a>
+        </li>
+    </ul>
+    <div class="extra-text">Alguns projetos que trabalhei</div>
+    <ul id="portfolio-list" isotope-container iso-options-subscribe="my-iso-opts" iso-method-subscribe="my-iso-method">
+        <!--<li ng-repeat="project in projects | filter:query | orderBy:orderProp">-->
+        <li ng-repeat="project in projects" isotope-item>
+            <a href="{{ project.url }}" title="{{ project.title }}" class="folio fancybox.iframe"
+               fancyboxable="{transitionIn:'elastic',
+                        transitionOut:'elastic',
+                        speedIn:200,
+                        speedOut:200,
+                        overlayOpacity:0.6,
+                        maxWidth:1200,
+                        maxHeight:600,
+                        fitToView:false,
+                        width:'70%',
+                        height:'70%'}">
+            <img src="{{ project.thumb }}" alt="{{ project.title }}" adipoli>
+            <h2 class="title">{{ project.title }}</h2>
+            <span class="categorie">{{ project.tools }}<br><strong>{{ project.agency }}</strong></span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- /Portfolio -->
