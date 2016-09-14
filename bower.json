@@ -13,7 +13,7 @@
     "font-awesome": "~4.2.0",
     "angular-loading-bar": "^0.8.0",
     "angular-isotope": "^0.1.14",
-    "angular-fancybox-plus": "^1.0.3",
-    "angular-route": "^1.5.8"
+    "angular-route": "^1.5.8",
+    "fancybox": "^2.1.5"
   }
 }

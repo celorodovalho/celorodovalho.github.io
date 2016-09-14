@@ -15,13 +15,13 @@
 
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="css/app.css"/>
-    <link rel="stylesheet" type="text/css" href="css/fancybox.css"/>
+    <link rel="stylesheet" type="text/css" href="js/vendor/fancybox/source/jquery.fancybox.css"/>
     <link rel="stylesheet" type="text/css" href="js/vendor/angular-loading-bar/build/loading-bar.min.css"/>
 <!--    <link rel="stylesheet" type="text/css" href="js/vendor/bootstrap/dist/css/bootstrap.min.css"/>-->
     <link rel="stylesheet" type="text/css"
           href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,800,700,400italic|PT+Serif:400,400italic"/>
 </head>
-<body ng-controller="AppController">
+<body ng-controller="MainController">
     <!-- Container -->
     <div class="app" id="container" ui-view></div>
     <!-- /Container -->
@@ -33,13 +33,14 @@
 <script src="js/vendor/angular-loading-bar/build/loading-bar.min.js"></script>
 <script src="js/vendor/isotope/jquery.isotope.min.js"></script>
 <script src="js/vendor/angular-isotope/dist/angular-isotope.min.js"></script>
-<script src="js/vendor/angular-fancybox-plus/js/angular-fancybox-plus.js"></script>
+<script src="js/vendor/fancybox/source/jquery.fancybox.js"></script>
 <script src="js/jquery.adipoli.min.js"></script>
 
 
 <script src="js/config.js"></script>
 <script src="js/config.router.js"></script>
 <script src="js/directives/adipoli.js"></script>
+<script src="js/directives/fancybox.js"></script>
 
 <script src="js/controllers/Main.js"></script>
 <script src="js/controllers/Profile.js"></script>

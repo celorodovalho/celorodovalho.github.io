@@ -15,7 +15,7 @@ appModule
                 birthday: '22 de Agosto de 1985',
                 address: 'Águas Claras, Distrito Federal',
                 mail: 'contato@marcelorodovalho.com',
-                phone: '+55 61 9302 5413',
+                phone: '+55 61 99302 5413',
                 website: 'marcelorodovalho.com'
             }
         }

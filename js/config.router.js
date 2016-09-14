@@ -30,24 +30,12 @@ angular.module('app')
                 })
                 .state('app.profile', {
                     url: '/profile',
-                    controller: 'ProfileController'/*,
-                    resolve: {
-                        deps: ['$ocLazyLoad',
-                            function( $ocLazyLoad ){
-
-                            }]
-                    }*/
+                    controller: 'ProfileController'
                 })
                 .state('app.resume', {
                     url: '/resume',
                     controller: 'ResumeController',
                     templateUrl: 'views/resume.html'
-                    //resolve: {
-                    //  deps: ['$ocLazyLoad',
-                    //    function( $ocLazyLoad ){
-                    //      return $ocLazyLoad.load(['js/controllers/chart.js']);
-                    //  }]
-                    //}
                 })
                 .state('app.portfolio', {
                     url: '/portfolio',
@@ -58,16 +46,6 @@ angular.module('app')
                     url: '/contact',
                     controller: 'ContactController',
                     templateUrl: 'views/contact.html'
-                })
-                .state('app.dashboard-v2', {
-                    url: '/dashboard-v2',
-                    templateUrl: 'tpl/app_dashboard_v2.html'/*,
-                    resolve: {
-                        deps: ['$ocLazyLoad',
-                            function( $ocLazyLoad ){
-                                return $ocLazyLoad.load(['js/controllers/chart.js']);
-                            }]
-                    }*/
                 })
         }
     ]
