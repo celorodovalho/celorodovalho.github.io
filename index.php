@@ -35,12 +35,15 @@
 <script src="js/vendor/angular-isotope/dist/angular-isotope.min.js"></script>
 <script src="js/vendor/fancybox/source/jquery.fancybox.js"></script>
 <script src="js/jquery.adipoli.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="js/jquery.gmap.min.js"></script>
 
 
 <script src="js/config.js"></script>
 <script src="js/config.router.js"></script>
 <script src="js/directives/adipoli.js"></script>
 <script src="js/directives/fancybox.js"></script>
+<script src="js/directives/map.js"></script>
 
 <script src="js/controllers/Main.js"></script>
 <script src="js/controllers/Profile.js"></script>

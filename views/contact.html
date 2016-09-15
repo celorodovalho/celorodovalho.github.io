@@ -1,14 +1,14 @@
 <!-- Contact -->
 <div id="contact">
-    <div id="map"></div>
+    <div id="map" map></div>
     <!-- Contact Info -->
     <div class="contact-info">
         <h3 class="main-heading"><span>Contato</span></h3>
         <ul>
-            <li>Quadra 203, Águas Claras (Sul)<br/><br/></li>
-            <li>Email: contato@marcelorodovalho.com</li>
-            <li>Phone: +55 61 9302 5413</li>
-            <li>Website: www.marcelorodovalho.com</li>
+            <li>{{ address.location }}<br/><br/></li>
+            <li>Email: {{ address.mail }}</li>
+            <li>Phone: {{ address.phone }}</li>
+            <li>Website: {{ address.website }}</li>
         </ul>
     </div>
     <!-- /Contact Info -->
@@ -16,20 +16,33 @@
     <div class="contact-form">
         <h3 class="main-heading"><span>Vamos manter contato</span></h3>
         <div id="contact-status"></div>
-        <form action="" id="contactform">
+        <form name="form" id="contactform" novalidate ng-submit="submit()">
+            <div class="{{ alert.type }}" ng-show="form.$submitted && alert">
+                {{ alert.message }}
+            </div>
             <p>
                 <label for="name">Seu Nome</label>
-                <input type="text" id="name" name="name" class="input">
+                <input type="text" id="name" name="name" class="input" ng-model="contact.name" required>
+                <span ng-show="form.$submitted || form.name.$touched">
+                    <span ng-show="form.name.$error.required">Informe seu nome</span>
+                </span>
             </p>
             <p>
                 <label for="email">Seu Email</label>
-                <input type="text" id="email" name="email" class="input">
+                <input type="email" id="email" name="email" class="input" ng-model="contact.email" required>
+                <span ng-show="form.$submitted || form.email.$touched">
+                    <span ng-show="form.email.$error.required">Informe seu e-mail</span>
+                    <span ng-show="form.email.$error.email">E-mail válido</span>
+                </span>
             </p>
             <p>
                 <label for="message">Sua Message</label>
-                <textarea id="message" name="message" cols="88" rows="6" class="textarea"></textarea>
+                <textarea id="message" name="message" cols="88" rows="6" class="textarea" ng-model="contact.message" required></textarea>
+                <span ng-show="form.$submitted || form.message.$touched">
+                    <span ng-show="form.message.$error.required">Informe sua mensagem</span>
+                </span>
             </p>
-            <input type="submit" name="submit" value="Enviar mensagem" class="submit">
+            <input type="submit" name="submit" value="Enviar mensagem" class="submit" ng-disabled="form.$invalid">
         </form>
     </div>
     <!-- /Contact Form -->
