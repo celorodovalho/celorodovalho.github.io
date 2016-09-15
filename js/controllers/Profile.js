@@ -9,14 +9,14 @@ appModule
             $scope.profile = {
                 name: 'Marcelo Rodovalho',
                 title: 'Web Developer',
-                description: 'Gosto de desenvolver projetos criativos e inovadores.' +
-                'Busco sempre implementar códigos padronizados e documentados que sejam fáceis de manter.' +
+                description: 'Gosto de desenvolver projetos criativos e inovadores. ' +
+                'Busco sempre implementar códigos padronizados e documentados que sejam fáceis de manter. ' +
                 'Fique à vontade para apreciar meu portfólio e entrar em contato.',
                 birthday: '22 de Agosto de 1985',
                 address: 'Águas Claras, Distrito Federal',
-                mail: 'contato@marcelorodovalho.com',
-                phone: '+55 61 99302 5413',
-                website: 'marcelorodovalho.com'
+                mail: $scope.$parent.mail,
+                phone: $scope.$parent.phone,
+                website: $scope.$parent.website
             }
         }
     ]

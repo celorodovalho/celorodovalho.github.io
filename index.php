@@ -14,6 +14,8 @@
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="js/vendor/animate.css/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="js/vendor/hover/css/hover-min.css"/>
     <link rel="stylesheet" type="text/css" href="css/app.css"/>
     <link rel="stylesheet" type="text/css" href="js/vendor/fancybox/source/jquery.fancybox.css"/>
     <link rel="stylesheet" type="text/css" href="js/vendor/angular-loading-bar/build/loading-bar.min.css"/>
@@ -35,7 +37,7 @@
 <script src="js/vendor/angular-isotope/dist/angular-isotope.min.js"></script>
 <script src="js/vendor/fancybox/source/jquery.fancybox.js"></script>
 <script src="js/jquery.adipoli.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyDpl9_txzvSzCy0E37p38pTQyRuW3UfbmY"></script>
 <script src="js/jquery.gmap.min.js"></script>
 
 

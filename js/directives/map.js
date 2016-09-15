@@ -2,13 +2,19 @@ angular.module('app').directive('map', function () {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
-            var address = 'Praça das Andorinhas, Águas Claras';
+            var address = 'Blend Residencial';
             $(element).gMap({
-                address: address,
-                zoom: 16,
-                markers: [
-                    {'address': address}
-                ]
+                //address: address,
+                latitude: -15.834285,
+                longitude: -48.042507,
+                zoom: 17,
+                markers: [{
+                    //icon
+                    title: address,
+                    //address: address,
+                    latitude: -15.834285,
+                    longitude: -48.042507,
+                }]
             });
         }
     };

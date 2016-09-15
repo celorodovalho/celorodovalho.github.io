@@ -5,6 +5,7 @@ appModule
         '$scope',
         '$http',
         function ($scope, $http) {
+            $scope.$parent.toggle = false;
             $scope.projects = [];
             $scope.filters = [{
                 default: true,
@@ -15,9 +16,6 @@ appModule
             var BehanceProjectsCallback = function (data) {
                     angular.forEach(data, function(project, index){
                         AppendProject(project);
-                        if (index + 1 == data.length) {
-                            StartPortfolio();
-                        }
                     });
                 },
                 AppendProject = function (data) {
@@ -62,56 +60,6 @@ appModule
                         agency: agency
                     });
                 },
-                StartPortfolio = function () {
-                    // Needed variables
-
-                    // Run Isotope
-                    /*$container.isotope({
-                        filter: '*',
-                        layoutMode: 'masonry',
-                        animationOptions: {
-                            duration: 750,
-                            easing: 'linear'
-                        }
-                    });*/
-
-                    // Isotope Filter
-                    /*$filter.find('a').click(function () {
-                        var selector = $(this).attr('data-filter');
-                        $container.isotope({
-                            filter: selector,
-                            animationOptions: {
-                                duration: 750,
-                                easing: 'linear',
-                                queue: false
-                            }
-                        });
-                        return false;
-                    });*/
-/*
-                    // Copy categories to item classes
-                    $filter.find('a').click(function () {
-                        var currentOption = $(this).attr('data-filter');
-                        $filter.find('a').removeClass('current');
-                        $(this).addClass('current');
-                    });
-*/
-                    /* ---------------------------------------------------------------------- */
-                    /*	Fancybox
-                     /* ---------------------------------------------------------------------- */
-                    /*$container.find('.folio').fancybox({
-                        'transitionIn': 'elastic',
-                        'transitionOut': 'elastic',
-                        'speedIn': 200,
-                        'speedOut': 200,
-                        'overlayOpacity': 0.6,
-                        maxWidth	: 1200,
-                        maxHeight	: 600,
-                        fitToView	: false,
-                        width		: '70%',
-                        height		: '70%',
-                    });*/
-                },
                 PortfolioFilters = function (filters) {
                     angular.forEach(filters, function(value, index){
                         var filter = value.replace(/[\/\. ]/g, '').toLowerCase(),
@@ -125,7 +73,6 @@ appModule
                         }
                     });
                 };
-            $scope.$parent.toggle = false;
             $http.get('results.json').success(function(data) {
                 BehanceProjectsCallback(data);
             });

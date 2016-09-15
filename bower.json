@@ -14,6 +14,7 @@
     "angular-loading-bar": "^0.8.0",
     "angular-isotope": "^0.1.14",
     "angular-route": "^1.5.8",
-    "fancybox": "^2.1.5"
+    "fancybox": "^2.1.5",
+    "hover": "Hover#^2.0.2"
   }
 }

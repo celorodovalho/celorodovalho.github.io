@@ -722,6 +722,11 @@ div.top {
     font-size: 13px;
 }
 
+span.invalid {
+    color: #b3696c;
+    padding-left: 10px;
+}
+
 .success, .error {
     padding: 10px;
     margin-bottom: 10px;
@@ -736,6 +741,7 @@ div.top {
     border: 1px solid #C2D288;
 }
 
+#contactform .ng-invalid.ng-touched,
 .error {
     background-color: #f9e5e6;
     color: #b3696c;
@@ -1209,7 +1215,7 @@ div.footer .copyright {
 }
 
 [ui-view].ng-leave {
-    display: none;
+    /*display: none;*/
 }
 
 [ui-view].ng-leave.smooth {
@@ -1452,4 +1458,10 @@ div.footer .copyright {
         transform: translate3d(100%, 0, 0) skewX(30deg);
         opacity: 0;
     }
+}
+.app-content-body[ui-view].ng-enter{
+    /*animation: slideInUp 0.5s both ease-in; z-index: 8888;*/
+}
+.app-content-body[ui-view].ng-leave{
+    /*animation: slideOutDown 0.5s both ease-in; z-index: 9999;*/
 }
