@@ -120,6 +120,11 @@ if (!empty($projects)) {
         );
     }
 }
+if(!empty($_GET) && array_key_exists('return', $_GET)) {
+    echo "<pre>";
+    var_dump($projects);
+    die;
+}
 $fp = fopen('results.json', 'w');
 fwrite($fp, json_encode($projects));
 fclose($fp);
