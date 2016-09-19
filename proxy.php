@@ -32,12 +32,32 @@
 if(isset($_GET['project'])) {
 
 }*/
-$url = 'http://behance.net/v2/users/marcelorodovalho/projects?api_key=D5zGvHfQB4zF5bjD3sZD9EB3yt0TulEs&page=';//($_POST['url']) ? $_POST['url'] : $_GET['url'];
-$headers = ($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
-$mimeType = ($_POST['mimeType']) ? $_POST['mimeType'] : $_GET['mimeType'];
+$apiKey = 'D5zGvHfQB4zF5bjD3sZD9EB3yt0TulEs';
+$url = 'http://behance.net/v2/users/marcelorodovalho/projects?api_key=' . $apiKey . '&page=';//($_POST['url']) ? $_POST['url'] : $_GET['url'];
+$headers = 'true';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
+//$mimeType = ($_POST['mimeType']) ? $_POST['mimeType'] : $_GET['mimeType'];
 $loopPagination = true;
 $projects = [];
 $page = 1;
+
+function checkSiteExists($url)
+{
+    $handle = curl_init($url);
+    curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
+
+    /* Get the HTML or whatever is linked in $url. */
+    $response = curl_exec($handle);
+
+    /* Check for 404 (file not found). */
+    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+//    if($httpCode == 404) {
+//        /* Handle 404 here. */
+//    }
+
+    curl_close($handle);
+    return $httpCode == 404 ? false : true;
+}
+
 while ($loopPagination) {
     $session = curl_init($url . $page);
     curl_setopt($session, CURLOPT_HEADER, ($headers == "true") ? true : false);
@@ -59,19 +79,47 @@ while ($loopPagination) {
 }
 if (!empty($projects)) {
     foreach ($projects as $key => $project) {
-        $url = 'http://behance.net/v2/projects/' . $project['id'] . '?api_key=D5zGvHfQB4zF5bjD3sZD9EB3yt0TulEs';
+        $url = 'http://behance.net/v2/projects/' . $project['id'] . '?api_key=' . $apiKey . '';
         $session = curl_init($url);
         curl_setopt($session, CURLOPT_HEADER, ($headers == "true") ? true : false);
         curl_setopt($session, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($session);
+        curl_close($session);
         if ($response) {
             $response = json_decode($response, true);
             if ($response['http_code'] == 200) {
                 $projects[$key] = $response['project'];
+                $descriptions = explode('\n', $response['description']);
+                foreach ($descriptions as $description) {
+                    if (strpos($description, 'URL:') !== false) {
+                        $www = trim(str_replace('URL:', '', $description));
+                        if (checkSiteExists($www)) {
+                            $projects[$key]['www'] = $www;
+                        } else {
+                            $projects[$key]['www'] = $response['covers']['original'];
+                        }
+                    }
+                }
             }
         }
-        curl_close($session);
+        unset(
+            $projects[$key]['published_on'],
+            $projects[$key]['created_on'],
+            $projects[$key]['modified_on'],
+            $projects[$key]['privacy'],
+            $projects[$key]['mature_content'],
+            $projects[$key]['mature_access'],
+            $projects[$key]['owners'],
+            $projects[$key]['stats'],
+            $projects[$key]['conceived_on'],
+            $projects[$key]['canvas_width'],
+            $projects[$key]['editor_version'],
+            $projects[$key]['modules'],
+            $projects[$key]['short_url'],
+            $projects[$key]['copyright'],
+            $projects[$key]['styles']
+        );
     }
 }
 $fp = fopen('results.json', 'w');

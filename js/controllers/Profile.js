@@ -15,8 +15,7 @@ appModule
                 birthday: '22 de Agosto de 1985',
                 address: 'Águas Claras, Distrito Federal',
                 mail: $scope.$parent.mail,
-                phone: $scope.$parent.phone,
-                website: $scope.$parent.website
+                phone: $scope.$parent.phone
             }
         }
     ]

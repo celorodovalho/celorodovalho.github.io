@@ -8,7 +8,6 @@
             <li>{{ address.location }}<br/><br/></li>
             <li>Email: {{ address.mail }}</li>
             <li>Phone: {{ address.phone }}</li>
-            <li>Website: {{ address.website }}</li>
         </ul>
     </div>
     <!-- /Contact Info -->
@@ -36,7 +35,7 @@
                 </span>
             </p>
             <p>
-                <label for="message">Sua Message</label>
+                <label for="message">Sua Mensagem</label>
                 <textarea id="message" name="message" cols="88" rows="6" class="textarea" ng-model="contact.message" required></textarea>
                 <span class="invalid" ng-show="form.$submitted || form.message.$touched">
                     <span ng-show="form.message.$error.required">Informe sua mensagem</span>

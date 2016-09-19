@@ -4,8 +4,7 @@ appModule.controller('ContactController', ['$scope', '$http', function ($scope, 
     $scope.address = {
         location: 'Blend Residencial, Águas Claras',
         mail: $scope.$parent.mail,
-        phone: $scope.$parent.phone,
-        website: $scope.$parent.website
+        phone: $scope.$parent.phone
     };
     $scope.contact = {};
     $scope.alert = null;

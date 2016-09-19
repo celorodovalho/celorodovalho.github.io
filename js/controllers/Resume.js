@@ -61,22 +61,10 @@ appModule
                     year: '2014'
                 },
                 {
-                    course: 'Web Designer',
-                    colleague: 'Microlins',
-                    year: '2005 - 2006',
-                    description: 'HTML/CSS/JS, Dreamweaver, Fireworks, Photoshop e Flash.'
-                },
-                {
-                    course: 'PHP/MySQL',
-                    colleague: 'Faculdades Anhanguera',
-                    year: '2008',
-                    description: 'Linguagem PHP, banco de dados MySQL.'
-                },
-                {
-                    course: 'SEO - Search Engine Optimization',
-                    colleague: 'OlhóSeo',
-                    year: '2011',
-                    description: 'Otimização em Sistemas de Busca.'
+                    course: 'SCRUM',
+                    colleague: 'TI Exames',
+                    year: '2014',
+                    description: 'Metodologia ágil para gestão e planejamento de projetos de software.'
                 },
                 {
                     course: 'HTML5 - CSS3',
@@ -85,10 +73,22 @@ appModule
                     description: 'Linguagem HTML5 e CSS3.'
                 },
                 {
-                    course: 'SCRUM',
-                    colleague: 'TI Exames',
-                    year: '2014',
-                    description: 'Metodologia ágil para gestão e planejamento de projetos de software.'
+                    course: 'SEO - Search Engine Optimization',
+                    colleague: 'OlhóSeo',
+                    year: '2011',
+                    description: 'Otimização em Sistemas de Busca.'
+                },
+                {
+                    course: 'PHP/MySQL',
+                    colleague: 'Faculdades Anhanguera',
+                    year: '2008',
+                    description: 'Linguagem PHP, banco de dados MySQL.'
+                },
+                {
+                    course: 'Web Designer',
+                    colleague: 'Microlins',
+                    year: '2005 - 2006',
+                    description: 'HTML/CSS/JS, Dreamweaver, Fireworks, Photoshop e Flash.'
                 }
             ];
             $scope.skills = [
