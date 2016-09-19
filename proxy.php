@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 /*// Allow from any origin
     if (isset($_SERVER['HTTP_ORIGIN'])) {
         header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
@@ -34,7 +36,7 @@ if(isset($_GET['project'])) {
 }*/
 $apiKey = 'D5zGvHfQB4zF5bjD3sZD9EB3yt0TulEs';
 $url = 'http://behance.net/v2/users/marcelorodovalho/projects?api_key=' . $apiKey . '&page=';//($_POST['url']) ? $_POST['url'] : $_GET['url'];
-$headers = 'true';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
+$headers = 'false';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
 //$mimeType = ($_POST['mimeType']) ? $_POST['mimeType'] : $_GET['mimeType'];
 $loopPagination = true;
 $projects = [];
