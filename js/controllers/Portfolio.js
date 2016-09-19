@@ -25,7 +25,7 @@ appModule
                         title = project.name,
                         id = project.id,
                         descriptions = project.description.split('\n'),
-                        url = project.url,
+                        url = project.www,
                         tools = [],
                         agency = '© ';
                     angular.forEach(project.tools, function(value, index){
@@ -44,9 +44,9 @@ appModule
                                 tools.push(valor.trim());
                             });
                         }
-                        if (/URL/.test(value)) {
+                        /*if (/URL/.test(value)) {
                             url = value.replace(/URL:/i, '').trim();
-                        }
+                        }*/
                     });
                     PortfolioFilters(fields);
                     fields = fields.join('#').replace(/[\/\. ]/g, '').replace(/#/g, ' ').toLowerCase();

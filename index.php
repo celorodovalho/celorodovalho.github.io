@@ -11,6 +11,7 @@
     <meta property="og:site_name" content="Marcelo Rodovalho">
     <meta property="og:description" content="Programador PHP, NodeJS, Javascript. Atuação em desenvolvimento web, suporte a usuários e ministração de cursos de desenvolvimento de sistemas e sites.">
     <meta property="og:image" content="http://marcelorodovalho.com/images/logo.jpg">
+    <meta property="og:image" content="http://marcelorodovalho.com/images/photo.jpg">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -19,9 +20,7 @@
     <link rel="stylesheet" type="text/css" href="css/app.css"/>
     <link rel="stylesheet" type="text/css" href="js/vendor/fancybox/source/jquery.fancybox.css"/>
     <link rel="stylesheet" type="text/css" href="js/vendor/angular-loading-bar/build/loading-bar.min.css"/>
-<!--    <link rel="stylesheet" type="text/css" href="js/vendor/bootstrap/dist/css/bootstrap.min.css"/>-->
-    <link rel="stylesheet" type="text/css"
-          href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,800,700,400italic|PT+Serif:400,400italic"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,800,700,400italic|PT+Serif:400,400italic"/>
 </head>
 <body ng-controller="MainController">
     <!-- Container -->
@@ -40,7 +39,6 @@
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyDpl9_txzvSzCy0E37p38pTQyRuW3UfbmY"></script>
 <script src="js/jquery.gmap.min.js"></script>
 
-
 <script src="js/config.js"></script>
 <script src="js/config.router.js"></script>
 <script src="js/directives/adipoli.js"></script>
@@ -52,11 +50,6 @@
 <script src="js/controllers/Resume.js"></script>
 <script src="js/controllers/Portfolio.js"></script>
 <script src="js/controllers/Contact.js"></script>
-
-<!--    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>-->
-<!--    <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>-->
-
-<!--<script src="js/app.src.js"></script>-->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
