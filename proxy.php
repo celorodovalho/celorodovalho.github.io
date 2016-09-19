@@ -94,8 +94,6 @@ if (!empty($projects)) {
                         $www = trim(str_replace('URL:', '', $description));
                         if (isActive($www)) {
                             $projects[$key]['www'] = $www;
-                        } else {
-                            $projects[$key]['www'] = $response['project']['covers']['original'];
                         }
                     }
                 }

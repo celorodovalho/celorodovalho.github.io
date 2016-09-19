@@ -25,7 +25,7 @@ appModule
                         title = project.name,
                         id = project.id,
                         descriptions = project.description.split('\n'),
-                        url = project.www,
+                        url = project.www | project.covers['original'],
                         tools = [],
                         agency = '© ';
                     angular.forEach(project.tools, function(value, index){
@@ -57,7 +57,8 @@ appModule
                         title: title,
                         thumb: thumb,
                         tools: tools.join(' / '),
-                        agency: agency
+                        agency: agency,
+                        type: project.www ? 'iframe' : 'image'
                     });
                 },
                 PortfolioFilters = function (filters) {
