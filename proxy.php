@@ -41,23 +41,19 @@ $headers = 'false';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
 $loopPagination = true;
 $projects = [];
 $page = 1;
-
-function checkSiteExists($url)
+function isActive($url)
 {
-    $handle = curl_init($url);
-    curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
-
-    /* Get the HTML or whatever is linked in $url. */
-    $response = curl_exec($handle);
-
-    /* Check for 404 (file not found). */
-    $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-//    if($httpCode == 404) {
-//        /* Handle 404 here. */
-//    }
-
-    curl_close($handle);
-    return $httpCode == 404 ? false : true;
+    /*$ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_HEADER, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $data = curl_exec($ch);
+    $headers = curl_getinfo($ch);
+    curl_close($ch);
+    return in_array($headers['http_code'], [200, 301, 302, 403]);*/
+    $headers = @get_headers( $url);
+    $headers = (is_array($headers)) ? implode( "\n ", $headers) : $headers;
+    return (bool)preg_match('#^HTTP/.*\s+[(200|301|302)]+\s#i', $headers);
 }
 
 while ($loopPagination) {
@@ -92,14 +88,14 @@ if (!empty($projects)) {
             $response = json_decode($response, true);
             if ($response['http_code'] == 200) {
                 $projects[$key] = $response['project'];
-                $descriptions = explode('\n', $response['description']);
+                $descriptions = explode("\n", $response['project']['description']);
                 foreach ($descriptions as $description) {
                     if (strpos($description, 'URL:') !== false) {
                         $www = trim(str_replace('URL:', '', $description));
-                        if (checkSiteExists($www)) {
+                        if (isActive($www)) {
                             $projects[$key]['www'] = $www;
                         } else {
-                            $projects[$key]['www'] = $response['covers']['original'];
+                            $projects[$key]['www'] = $response['project']['covers']['original'];
                         }
                     }
                 }
