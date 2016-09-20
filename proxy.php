@@ -1,6 +1,9 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('max_execution_time', 3000);
+ini_set('memory_limit', -1);
+set_time_limit(0);
 /*// Allow from any origin
     if (isset($_SERVER['HTTP_ORIGIN'])) {
         header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
@@ -34,6 +37,7 @@ ini_set('display_errors', 1);
 if(isset($_GET['project'])) {
 
 }*/
+
 $apiKey = 'D5zGvHfQB4zF5bjD3sZD9EB3yt0TulEs';
 $url = 'http://behance.net/v2/users/marcelorodovalho/projects?api_key=' . $apiKey . '&page=';//($_POST['url']) ? $_POST['url'] : $_GET['url'];
 $headers = 'true';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
@@ -41,6 +45,8 @@ $headers = 'true';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
 $loopPagination = true;
 $projects = [];
 $page = 1;
+$filename = 'results.json';
+
 function isActive($url)
 {
     /*$ch = curl_init();
@@ -54,6 +60,62 @@ function isActive($url)
     $headers = @get_headers($url);
     $headers = (is_array($headers)) ? implode( "\n ", $headers) : $headers;
     return (bool)preg_match('#^HTTP/.*\s+[(200|301|302)]+\s#i', $headers);
+}
+
+function unsetVars($project) {
+    unset(
+        $project['published_on'],
+        $project['created_on'],
+        $project['modified_on'],
+        $project['privacy'],
+        $project['mature_content'],
+        $project['mature_access'],
+        $project['owners'],
+        $project['stats'],
+        $project['conceived_on'],
+        $project['canvas_width'],
+        $project['editor_version'],
+        $project['modules'],
+        $project['short_url'],
+        $project['copyright'],
+        $project['styles']
+    );
+    return $project;
+}
+
+function addWww($project) {
+    $descriptions = explode("\n", $project['description']);
+    foreach ($descriptions as $description) {
+        if (strpos($description, 'URL:') !== false) {
+            $www = trim(str_replace('URL:', '', $description));
+            if (isActive($www)) {
+                $project['www'] = $www;
+            } else {
+                $project['www'] = $project['covers']['original'];
+            }
+        }
+    }
+    return $project;
+}
+
+if(!empty($_GET) && array_key_exists('parse', $_GET)) {
+    $fp = fopen($filename, 'r');
+    $projects = fread($fp, filesize($filename));
+    $projects = json_decode($projects, true);
+    foreach ($projects as $key => $project) {
+        $project = addWww($project);
+        $projects[$key] = unsetVars($project);
+    }
+    $fp = fopen($filename, 'w');
+    fwrite($fp, json_encode($projects));
+    fclose($fp);
+    die;
+}
+
+function debug($var) {
+		echo __LINE__;
+		echo "<pre>";
+		var_dump($var);
 }
 
 while ($loopPagination) {
@@ -88,34 +150,10 @@ if (!empty($projects)) {
             $response = json_decode($response, true);
             if ($response['http_code'] == 200) {
                 $projects[$key] = $response['project'];
-                $descriptions = explode("\n", $response['project']['description']);
-                foreach ($descriptions as $description) {
-                    if (strpos($description, 'URL:') !== false) {
-                        $www = trim(str_replace('URL:', '', $description));
-                        if (isActive($www)) {
-                            $projects[$key]['www'] = $www;
-                        }
-                    }
-                }
+                $projects[$key] = addWww($response['project']);
             }
         }
-        unset(
-            $projects[$key]['published_on'],
-            $projects[$key]['created_on'],
-            $projects[$key]['modified_on'],
-            $projects[$key]['privacy'],
-            $projects[$key]['mature_content'],
-            $projects[$key]['mature_access'],
-            $projects[$key]['owners'],
-            $projects[$key]['stats'],
-            $projects[$key]['conceived_on'],
-            $projects[$key]['canvas_width'],
-            $projects[$key]['editor_version'],
-            $projects[$key]['modules'],
-            $projects[$key]['short_url'],
-            $projects[$key]['copyright'],
-            $projects[$key]['styles']
-        );
+        $projects[$key] = unsetVars($projects[$key]);
     }
 }
 if(!empty($_GET) && array_key_exists('return', $_GET)) {
@@ -123,7 +161,7 @@ if(!empty($_GET) && array_key_exists('return', $_GET)) {
     var_dump($projects);
     die;
 }
-$fp = fopen('results.json', 'w');
+$fp = fopen($filename, 'w');
 fwrite($fp, json_encode($projects));
 fclose($fp);
 die;
