@@ -91,7 +91,7 @@ function addWww($project) {
             if (isActive($www)) {
                 $project['www'] = $www;
             } else {
-                $project['www'] = $project['covers']['original'];
+                $project['www'] = $project['modules'][0]['sizes']['original'];
             }
         }
     }
@@ -150,7 +150,7 @@ if (!empty($projects)) {
             $response = json_decode($response, true);
             if ($response['http_code'] == 200) {
                 $projects[$key] = $response['project'];
-                $projects[$key] = addWww($response['project']);
+                $projects[$key] = addWww($projects[$key]);
             }
         }
         $projects[$key] = unsetVars($projects[$key]);
