@@ -25,9 +25,10 @@ appModule
                         title = project.name,
                         id = project.id,
                         descriptions = project.description.split('\n'),
-                        url = project.www | project.covers['original'],
+                        url = project.www,
                         tools = [],
-                        agency = '© ';
+                        agency = '© ',
+                        type = 'iframe';
                     angular.forEach(project.tools, function(value, index){
                         fields.push(value.title);
                     });
@@ -50,6 +51,9 @@ appModule
                     });
                     PortfolioFilters(fields);
                     fields = fields.join('#').replace(/[\/\. ]/g, '').replace(/#/g, ' ').toLowerCase();
+                    if (/behance/.test(project.www)) {
+                        type = 'image';
+                    }
                     $scope.projects.push({
                         id: id,
                         fields: fields,
@@ -58,7 +62,7 @@ appModule
                         thumb: thumb,
                         tools: tools.join(' / '),
                         agency: agency,
-                        type: project.www ? 'iframe' : 'image'
+                        type: type
                     });
                 },
                 PortfolioFilters = function (filters) {
