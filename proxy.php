@@ -40,7 +40,7 @@ if(isset($_GET['project'])) {
 
 $apiKey = 'D5zGvHfQB4zF5bjD3sZD9EB3yt0TulEs';
 $url = 'http://behance.net/v2/users/marcelorodovalho/projects?api_key=' . $apiKey . '&page=';//($_POST['url']) ? $_POST['url'] : $_GET['url'];
-$headers = 'true';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
+$headers = 'false';//($_POST['headers']) ? $_POST['headers'] : $_GET['headers'];
 //$mimeType = ($_POST['mimeType']) ? $_POST['mimeType'] : $_GET['mimeType'];
 $loopPagination = true;
 $projects = [];
@@ -93,6 +93,7 @@ function addWww($project) {
             } else {
                 $project['www'] = $project['modules'][0]['sizes']['original'];
             }
+						debug($project['www']);
         }
     }
     return $project;
@@ -125,6 +126,7 @@ while ($loopPagination) {
     curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($session);
     if ($response) {
+				debug($page);
         $response = json_decode($response, true);
         if (isset($response['projects']) && !empty($response['projects']) && $response['http_code'] == 200) {
             $projects = array_merge($projects, $response['projects']);
@@ -147,6 +149,7 @@ if (!empty($projects)) {
         $response = curl_exec($session);
         curl_close($session);
         if ($response) {
+						debug($url);
             $response = json_decode($response, true);
             if ($response['http_code'] == 200) {
                 $projects[$key] = $response['project'];
@@ -161,7 +164,14 @@ if(!empty($_GET) && array_key_exists('return', $_GET)) {
     var_dump($projects);
     die;
 }
-$fp = fopen($filename, 'w');
-fwrite($fp, json_encode($projects));
-fclose($fp);
+$projects = json_encode($projects);
+debug([
+	'FIM',
+	strlen($projects)
+]);
+if (strlen($projects) > 0) {
+		$fp = fopen($filename, 'w');
+		fwrite($fp, $projects);
+		fclose($fp);
+}
 die;

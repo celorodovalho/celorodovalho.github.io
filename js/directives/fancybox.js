@@ -2,7 +2,6 @@ angular.module('app').directive('fancybox', function () {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
-          console.log(attrs);
             $(element).fancybox({
                 transitionIn: attrs['transitionIn'] ? attrs['transitionIn'] : 'elastic',
                 transitionOut: attrs['transitionOut'] ? attrs['transitionOut'] : 'elastic',
