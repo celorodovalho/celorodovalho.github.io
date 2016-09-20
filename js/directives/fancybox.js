@@ -9,7 +9,7 @@ angular.module('app').directive('fancybox', function () {
                 speedIn: attrs['speedIn'] ? attrs['speedIn'] : 200,
                 speedOut: attrs['speedOut'] ? attrs['speedOut'] : 200,
                 overlayOpacity: attrs['overlayOpacity'] ? attrs['overlayOpacity'] : 0.6,
-                type: attrs['type'] ? attrs['type'] : 'iframe',
+                type: attrs['fancyboxType'] ? attrs['fancyboxType'] : 'iframe',
                 scrolling: attrs['scrolling'] ? attrs['scrolling'] : 'no',
                 maxWidth: attrs['maxWidth'] ? attrs['maxWidth'] : 1200,
                 maxHeight: attrs['maxHeight'] ? attrs['maxHeight'] : 600,
