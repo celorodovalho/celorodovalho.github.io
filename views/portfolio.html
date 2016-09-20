@@ -9,7 +9,7 @@
     <ul id="portfolio-list" isotope-container iso-options-subscribe="my-iso-opts" iso-method-subscribe="my-iso-method">
         <!--<li ng-repeat="project in projects | filter:query | orderBy:orderProp">-->
         <li ng-repeat="project in projects" isotope-item class="{{ project.fields}}">
-            <a href="{{ project.url }}?iframe" title="{{ project.title }}"
+            <a href="{{ project.url }}?{{ project.type }}" title="{{ project.title }}"
                class="folio fancybox.{{ project.type }} {{ project.type }}" fancybox fancybox-type="{{ project.type }}">
             <img src="{{ project.thumb }}" alt="{{ project.title }}" adipoli>
             <h2 class="title">{{ project.title }}</h2>

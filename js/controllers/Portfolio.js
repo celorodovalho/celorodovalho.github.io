@@ -51,8 +51,9 @@ appModule
                     });
                     PortfolioFilters(fields);
                     fields = fields.join('#').replace(/[\/\. ]/g, '').replace(/#/g, ' ').toLowerCase();
-                    if (/behance/.test(project.www)) {
+                    if (/behance/.test(url)) {
                         type = 'image';
+                        console.log(type);
                     }
                     $scope.projects.push({
                         id: id,
