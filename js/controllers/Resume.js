@@ -105,7 +105,7 @@ appModule
                     type: 'Frameworks/CMS',
                     skills: {
                         Symfony2: 6,
-                        Laravel: 5,
+                        Laravel: 6,
                         AngularJS: 5,
                         Doctrine2: 5,
                         Zend2: 5,
@@ -125,19 +125,26 @@ appModule
                         MySQL: 6,
                         PostgreSQL: 6,
                         Oracle: 4,
-                        MongoDB: 4
+                        MongoDB: 4,
+                        SQLite3: 3
                     }
                 },
                 {
                     type: 'Outros',
                     skills: {
                         Bootstrap: 7,
+                        'Angular Material': 5,
                         'LESS, SASS': 6,
                         'GIT, SVN': 6,
                         'Corel Draw': 3,
                         Photoshop: 5,
-                        Linux: 6,
-                        'Asp, .NET': 3
+                        Linux: 5,
+                        'C#, Asp, .NET': 4,
+                        Python: 3,
+                        Grunt: 6,
+                        Gulp: 6,
+                        NodeJS: 6,
+                        Bower: 6
                     }
                 }
             ];
