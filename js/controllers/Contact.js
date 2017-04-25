@@ -11,7 +11,7 @@ appModule.controller('ContactController', ['$scope', '$http', function ($scope, 
     $scope.submit = function () {
         $http({
             method: 'POST',
-            url: 'http://marcelorodovalho.com/php/contact.php',
+            url: 'https://br796.hostgator.com.br/~marce769/php/contact.php',
             data: $.param($scope.contact),  // pass in data as strings
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}  // set the headers so angular passing info as form data (not request payload)
         })
