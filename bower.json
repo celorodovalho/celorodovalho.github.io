@@ -8,11 +8,11 @@
   "dependencies": {
     "angular": "1.4.7",
     "angular-animate": "1.4.7",
-    "angular-ui-router": "~0.2.11",
+    "angular-ui-router": "0.2.11",
     "animate.css": "~3.2.0",
     "font-awesome": "~4.2.0",
     "angular-loading-bar": "^0.8.0",
-    "angular-isotope": "^0.1.14",
+    "angular-isotope": "0.1.14",
     "angular-route": "^1.5.8",
     "fancybox": "^2.1.5",
     "hover": "Hover#^2.0.2"
