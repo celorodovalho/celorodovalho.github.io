@@ -2,7 +2,7 @@ appModule.controller('ContactController', ['$scope', '$http', function ($scope, 
     // config
     $scope.$parent.toggle = false;
     $scope.address = {
-        location: 'Blend Residencial, Águas Claras',
+        location: 'Águas Claras',
         mail: $scope.$parent.mail,
         phone: $scope.$parent.phone
     };
