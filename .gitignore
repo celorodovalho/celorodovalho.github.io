@@ -8,4 +8,4 @@ angular-phonecat-snapshots
 bower_components/
 #js/vendor
 projects/
-results.json
+#results.json
