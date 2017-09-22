@@ -684,6 +684,10 @@ div.top {
     -webkit-transform-origin: 0 0;
 }
 
+#ghcard-celorodovalho-1 {
+    width: 265px;
+}
+
 /* Contact Form */
 #contactform {
     padding-left: 30px;
