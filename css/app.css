@@ -675,7 +675,7 @@ div.top {
 }
 
 .IN-widget {
-    display: block;
+    display: block !important;
     margin: 15px 0 -35px -5px;
     -ms-zoom: 0.75;
     -moz-transform: scale(0.75);
