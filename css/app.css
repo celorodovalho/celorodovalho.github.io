@@ -655,6 +655,7 @@ div.top {
 }
 
 /* Contact info */
+.contact-info .social,
 .contact-info ul {
     float: left;
     margin-left: 11px;
