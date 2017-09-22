@@ -663,6 +663,10 @@ div.top {
     padding-left: 18px;
 }
 
+.contact-info .social {
+    margin-top: 18px;
+}
+
 .contact-info ul li {
     font-size: 13px;
     line-height: 20px;
