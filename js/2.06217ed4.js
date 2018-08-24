@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[2],{ItzQ:function(t,n,e){"use strict";e.r(n);var s=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("card",{staticClass:"text-center"},[e("h3",{staticClass:"mb-4"},[t._v(t._s(t.$t("page_not_found")))]),e("div",{staticClass:"links"},[e("router-link",{attrs:{to:{name:"welcome"}}},[t._v("\n      "+t._s(t.$t("go_home"))+"\n    ")])],1)])},a=[],o={name:"NotFound"},l=o,c=e("KHd+"),r=Object(c["a"])(l,s,a,!1,null,null,null);n["default"]=r.exports}}]);
+//# sourceMappingURL=2.06217ed4.js.map

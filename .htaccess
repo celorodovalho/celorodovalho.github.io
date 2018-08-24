@@ -1,10 +1,8 @@
 <IfModule mod_rewrite.c>
-RewriteEngine On
-# check if request is for subdomain
-RewriteCond %{HTTP_HOST} ^marcelorodovalho.com$ [NC]
-# check if  'test' isnt part of request
-RewriteCond %{REQUEST_URI} !^/projects/(.+)$ [NC]
-RewriteCond %{REQUEST_URI} ^/projects?(.*)$ [NC]
-# if subdomain and no 'test' part, redirect to main domain...
-RewriteRule ^(.*)$ http://marcelorodovalho.com/ [R,L]
-</ifModule>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
